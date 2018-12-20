@@ -59,5 +59,19 @@ def main():
     plt.show()
 
 
+    date0 = pd.datetime.strptime('2016-04-17', '%Y-%m-%d')
+    df_m = df[ df.utc > date0 ].copy()
+    df_m['delta'] = df_m['utc'] - date0
+    df_m['et'] = df_m['delta'].dt.total_seconds()/sec_of_day
+
+
+    from astropy.stats import LombScargle
+    ls = LombScargle(df_m.et, df_m.period, fit_mean=True)
+    freq, power = ls.autopower()
+    fmax = freq[np.argmax(power)]
+    print('frequency(Lomb-Scargle): ', 1/fmax)
+    print('frequency(rev/2):        ', 224.701/2.0)
+
+
 if __name__ == '__main__':
     main()
