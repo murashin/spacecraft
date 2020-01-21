@@ -11,7 +11,7 @@ data_url_prefix = 'https://naif.jpl.nasa.gov/pub/naif/pds/data/'
 # data_url_prefix = 'http://darts.isas.jaxa.jp/pub/pds3/'
 
 # vco_v??.orb can be updated if new orbit number file is available.
-data_url_filepath = 'vco-v-spice-6-v1.0/vcosp_1000/extras/orbnum/vco_v02.orb'
+data_url_filepath = 'vco-v-spice-6-v1.0/vcosp_1000/extras/orbnum/vco_v03.orb'
 
 data_url = data_url_prefix + data_url_filepath
 
